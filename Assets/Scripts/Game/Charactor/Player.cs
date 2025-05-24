@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-	private CharactorStat _charactorStat;
+	private CharacterStat _characterStat;
 	public static Player Instance = null;
     PlayerController moveController;
     AnimationControl anim;
@@ -14,15 +14,16 @@ public class Player : MonoBehaviour
     {
         Player.Instance = this;
         this.moveController = this.gameObject.AddComponent<PlayerController>();
-        this._charactorStat = GetComponent<CharactorStat>();
-		_charactorStat.OnHealthEqualsZero += OnHealthEqualsZero;
+        this._characterStat = GetComponent<CharacterStat>();
+		_characterStat.OnHealthEqualsZero += OnHealthEqualsZero;
 		this.anim = GetComponent<AnimationControl>();
         this.anim.Init();
     }
 
 	private void OnHealthEqualsZero()
 	{
-		_charactorStat.OnHealthEqualsZero -= OnHealthEqualsZero;
+		_characterStat.OnHealthEqualsZero -= OnHealthEqualsZero;
+		GameMgr.Instance.SetState(GameMgr.GameState.End);
 		Destroy(this.gameObject);
 	}
 
@@ -30,7 +31,7 @@ public class Player : MonoBehaviour
 	{
 		if (collision.CompareTag("Enemy"))
         {
-			CharactorStat stat = collision.GetComponent<CharactorStat>();
+			CharacterStat stat = collision.GetComponent<CharacterStat>();
 		}
 	}
 }

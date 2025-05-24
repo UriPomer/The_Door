@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+using Unity.Cinemachine;
 
 public class GameApp : UnitySingleton<GameApp>
 {
@@ -21,7 +21,7 @@ public class GameApp : UnitySingleton<GameApp>
         {
 			player.GetComponent<Player>().Init();
 		}
-        //ªÒ»°Cinemachine
+        
         CinemachineVirtualCamera vcam = GameObject.FindObjectOfType<CinemachineVirtualCamera>();
         vcam.Follow = player.transform;
         vcam.LookAt = player.transform;
@@ -29,7 +29,6 @@ public class GameApp : UnitySingleton<GameApp>
 
         //end
 
-        // Õ∑≈UI
         //UIMgr.Instance.ShowUI("UIExp");
         //UIMgr.Instance.ShowUI("UIHome");
         //end

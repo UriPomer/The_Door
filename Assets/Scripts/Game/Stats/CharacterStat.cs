@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Collections;
 using UnityEngine;
 
-public class CharactorStat : Stat
+public class CharacterStat : Stat
 {
 	public override float GetStat(Stats stat)
 	{

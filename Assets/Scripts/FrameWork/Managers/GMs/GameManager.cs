@@ -17,18 +17,19 @@ public class GameMgr : UnitySingleton<GameMgr>
 	{
         base.Awake();
         if(!this.gameObject.GetComponent<MapMgr>())
-		this.gameObject.AddComponent<MapMgr>();
+	        this.gameObject.AddComponent<MapMgr>();
 	}
 
 	public void Start()
 	{
         OnLevelChanged += OnLvChanged;
+        OnGameStateChanged += HandleStateChange;
 		_nextLevelXP = _maxExpNeeded * _xpLevelCapIncreaseCurve.Evaluate(_playerLevel);
 	}
 
 	public int Experience
     {
-        get { return _experience; }
+        get => _experience;
         set
         {
             _experience = Mathf.Max(value, 0);
@@ -46,7 +47,7 @@ public class GameMgr : UnitySingleton<GameMgr>
     private int _score = 0;
     public int Score
     {
-		get { return _score; }
+		get => _score;
 		set
         {
 			_score = Mathf.Max(value, 0);
@@ -56,7 +57,7 @@ public class GameMgr : UnitySingleton<GameMgr>
 
     public int PlayerLevel
     {
-        get { return _playerLevel; }
+        get => _playerLevel;
         set
         {
             _playerLevel = Mathf.Max(value, 0);
@@ -64,10 +65,7 @@ public class GameMgr : UnitySingleton<GameMgr>
         }
     }
 
-    public float NextLevelXP
-    {
-		get { return _nextLevelXP; }
-	}
+    public float NextLevelXP => _nextLevelXP;
 
     private float _lastLevelUpXP = 0;
     private float _nextLevelXP = 0;
@@ -86,8 +84,23 @@ public class GameMgr : UnitySingleton<GameMgr>
 		Resume,
 		End
 	}
+	
+	public void SetState(GameState state)
+	{
+		this.state = state;
+		OnGameStateChanged?.Invoke(state);
+	}
+	
+	public Action<GameState> OnGameStateChanged;
+
+	private void HandleStateChange(GameState State)
+	{
+		Debug.Log(State);
+	}
+
 	private void OnLvChanged(int Level)
     {
-        UIController skillChooser = UIMgr.Instance.ShowUI("UISkillChooser");
+        UIMgr.Instance.ShowUI("UISkillChooser");
     }
 }
+

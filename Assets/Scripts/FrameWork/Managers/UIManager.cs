@@ -21,13 +21,13 @@ public class UIMgr : UnitySingleton<UIMgr>
     public UIController ShowUI(string name, Transform parent = null)
     {
         GameObject uiPrefab = Resources.Load<GameObject>(uiPrefabPath + name);
-        GameObject uiView = Instantiate(uiPrefab);
-        uiView.name = name;
+        
         if(parent == null)
         {
 			parent = canvas.transform;
 		}
-        uiView.transform.SetParent(parent, false);
+        GameObject uiView = Instantiate(uiPrefab, parent, false);
+        uiView.name = name;
 
         Type type = Type.GetType(name + "_Ctrl");
         UIController uiCtrl = (UIController)uiView.AddComponent(type);

@@ -21,7 +21,6 @@ public class AnimationControl : MonoBehaviour
 		}
 
 		this.state = state;
-		//ÇÐ»»¶¯»­
 		//switch(this.state)
 		//{
 		//	case (int)PlayerState.Idle:

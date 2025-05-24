@@ -24,6 +24,7 @@ public abstract class Singleton<T> where T : new()
 			return _instance;
 		}
 	}
+	
 }
 
 public class UnitySingleton<T> : MonoBehaviour where T : Component
@@ -33,6 +34,12 @@ public class UnitySingleton<T> : MonoBehaviour where T : Component
 	{
 		get
 		{
+			if (isQuitting)
+			{
+				Debug.LogWarning($"Trying to access {typeof(T).Name} during application quit. Returning null.");
+				return null;
+			}
+			
 			if (_instance == null)
 			{
 				_instance = FindObjectOfType(typeof(T)) as T;
@@ -59,5 +66,20 @@ public class UnitySingleton<T> : MonoBehaviour where T : Component
 		{
 			Destroy(this.gameObject);
 		}
+	}
+	
+	protected virtual void OnDestroy()
+	{
+		if (_instance == this)
+		{
+			_instance = null;
+		}
+	}
+	
+	private static bool isQuitting = false;
+
+	protected virtual void OnApplicationQuit()
+	{
+		isQuitting = true;
 	}
 }

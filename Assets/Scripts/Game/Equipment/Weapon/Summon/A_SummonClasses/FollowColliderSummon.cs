@@ -81,7 +81,7 @@ public class FollowColliderSummon : A_Summon
 		if (collision.gameObject == fireTarget)
 		{
 			hitedGameObjects.Add(collision.gameObject);
-			collision.gameObject.GetComponent<CharactorStat>().TakeDamage(GetStat(Stats.Damage));
+			collision.gameObject.GetComponent<CharacterStat>().TakeDamage(GetStat(Stats.Damage));
 			if (hitedGameObjects.Count < GetStat(Stats.HitCount) - 1)
 			{
 				fireMoveMethod.Stop();

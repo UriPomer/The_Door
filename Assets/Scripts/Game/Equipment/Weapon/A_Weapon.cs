@@ -10,7 +10,7 @@ public abstract class A_Weapon : Stat
 	protected Rigidbody2D rb;
 	protected Animator animator;
 	protected new Collider2D collider;
-	protected CharactorStat playerStats;
+	protected CharacterStat playerStats;
 
 	[SerializeField] protected readonly float DETERMINE_TIME_INTERVAL = 0.1f;
 
@@ -29,7 +29,7 @@ public abstract class A_Weapon : Stat
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
 		collider = GetComponent<Collider2D>();
-		playerStats = GameObject.FindWithTag("Player").GetComponent<CharactorStat>();
+		playerStats = GameObject.FindWithTag("Player").GetComponent<CharacterStat>();
 		if (playerStats == null)
 		{
 			throw new System.Exception("PlayerCharatorStat is null");

@@ -43,13 +43,10 @@ public class PlayerController : MonoBehaviour
         movement=playerControl.MoveControl.Move.ReadValue<Vector2>();
         if (!movement.Equals(Vector2.zero)) direction = movement;
         
-
-        //Debug.Log(movement.x);
     }
     private void Move()
     {
         rb.MovePosition(rb.position+movement*(moveSpeed*Time.fixedDeltaTime));
-       // Debug.Log(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
     void Rotate()
     {

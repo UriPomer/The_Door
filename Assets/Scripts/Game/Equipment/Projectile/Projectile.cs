@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
 	protected Rigidbody2D rb;
 	protected Animator animator;
 	protected new Collider2D collider;
-	protected CharactorStat playerAttributes;
+	protected CharacterStat playerAttributes;
 
 	[Header("Projectile")]
 	protected A_Weapon weapon;
@@ -59,7 +59,7 @@ public class Projectile : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
 		collider = GetComponent<Collider2D>();
-		playerAttributes = GameObject.FindGameObjectWithTag("Player").GetComponent<CharactorStat>();
+		playerAttributes = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStat>();
 	}
 
 
@@ -94,13 +94,13 @@ public class Projectile : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Player" && this.projectileType == ProjectileType.Enemy)
 		{
-			collision.gameObject.GetComponent<CharactorStat>().TakeDamage(playerAttributes.GetStat(Stats.Damage));
+			collision.gameObject.GetComponent<CharacterStat>().TakeDamage(playerAttributes.GetStat(Stats.Damage));
 			projectileState = ProjectileState.Hited;
 			Destroy(this.gameObject);
 		}
 		if(collision.gameObject.tag == "Enemy" && this.projectileType == ProjectileType.Player)
 		{
-			collision.gameObject.GetComponent<CharactorStat>().TakeDamage(playerAttributes.GetStat(Stats.Damage));
+			collision.gameObject.GetComponent<CharacterStat>().TakeDamage(playerAttributes.GetStat(Stats.Damage));
 			projectileState = ProjectileState.Hited;
 			Destroy(this.gameObject);
 		}

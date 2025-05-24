@@ -17,7 +17,6 @@ public class UISkillChooser_Ctrl : UIController
 
 	public void Start()
 	{
-
 		string pathToResources = "Prefabs/Weapons/Summons";
 		GameObject[] prefabs = Resources.LoadAll<GameObject>(pathToResources);
 		
@@ -26,7 +25,6 @@ public class UISkillChooser_Ctrl : UIController
 			skillPrefabList.Add(prefab);
 		}
 
-		//在skillPrefabList中随机选3个
 		List<GameObject> skillPrefabListRandom = new List<GameObject>();
 		for (int i = 0; i < 3; i++)
 		{
@@ -38,7 +36,6 @@ public class UISkillChooser_Ctrl : UIController
 
 		int index = 0;
 
-		//显示3个技能
 		foreach(Button button in this.GetComponentsInChildren<Button>())
 		{
 			GameObject skillPrefab = skillPrefabListRandom[index];

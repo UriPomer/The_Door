@@ -24,7 +24,7 @@ public class UIExp_Ctrl : UIController
 	private void OnDestroy()
 	{
 		if(GameMgr.Instance != null)
-		GameMgr.Instance.OnExperienceChanged -= OnExperienceChanged;
+			GameMgr.Instance.OnExperienceChanged -= OnExperienceChanged;
 	}
 	private void OnExperienceChanged(int newXP)
 	{

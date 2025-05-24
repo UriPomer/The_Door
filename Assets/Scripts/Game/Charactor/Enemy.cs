@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 { 
-	private CharactorStat _charactorStat;
+	private CharacterStat _characterStat;
 	private SpeedMove speedMove;
 
 	private void Awake()
 	{
-		_charactorStat = GetComponent<CharactorStat>();
+		_characterStat = GetComponent<CharacterStat>();
 		speedMove = gameObject.AddComponent<SpeedMove>();
 	}
 
@@ -18,14 +18,14 @@ public class Enemy : MonoBehaviour
 	{
 		speedMove.speed = 1f;
 		speedMove.Attach(transform.gameObject, GameObject.FindGameObjectWithTag("Player"));
-		_charactorStat.OnHealthEqualsZero += OnHealthEqualsZero;
+		_characterStat.OnHealthEqualsZero += OnHealthEqualsZero;
 	}
 
 	private void OnHealthEqualsZero()
 	{
 		GameObject expBall = Resources.Load<GameObject>("Prefabs/Drops/ExpBall");
 		Instantiate(expBall, transform.position, Quaternion.identity);
-		_charactorStat.OnHealthEqualsZero -= OnHealthEqualsZero;
+		_characterStat.OnHealthEqualsZero -= OnHealthEqualsZero;
 		Destroy(this.gameObject);
 	}
 
@@ -33,8 +33,8 @@ public class Enemy : MonoBehaviour
 	{
 		if (collision.CompareTag("Player"))
 		{
-			CharactorStat stat = collision.GetComponent<CharactorStat>();
-			stat.TakeDamage(_charactorStat.GetStat(CharactorStat.Stats.Damage));
+			CharacterStat stat = collision.GetComponent<CharacterStat>();
+			stat.TakeDamage(_characterStat.GetStat(Stat.Stats.Damage));
 		}
 	}
 }
