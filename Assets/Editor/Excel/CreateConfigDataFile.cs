@@ -5,24 +5,24 @@ using UnityEditor;
 
 public class CreateConfigDataFile : EditorWindow
 {
-    static string filePath = "/Scripts/ConfigDatas";
+    static string filePath = "/Scripts/Configs";
     private Object selectedObj;
 	private bool canCreate = false;
 	private bool canCreateObjects = false;
 
-    [MenuItem("Tools/Excel/ÅäÖÃÎÄ¼þÉú³É")]
+    [MenuItem("Tools/Excel/ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public static void ShowWindow()
     {
         CreateConfigDataFile window = (CreateConfigDataFile)EditorWindow.GetWindow(typeof(CreateConfigDataFile));
-        window.titleContent.text = "ÅäÖÃÎÄ¼þÉú³É";
+        window.titleContent.text = "ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½";
     }
 
 	private void OnGUI()
 	{
-		GUILayout.Label("Ñ¡ÔñcsvÎÄ¼þ");
+		GUILayout.Label("Ñ¡ï¿½ï¿½csvï¿½Ä¼ï¿½");
 		if (Selection.activeObject == null)
 		{
-			GUILayout.Label("Ã»ÓÐÑ¡ÔñÈÎºÎcsv");
+			GUILayout.Label("Ã»ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Îºï¿½csv");
 			canCreate = false;
 		}
 		else
@@ -30,15 +30,15 @@ public class CreateConfigDataFile : EditorWindow
 			GUILayout.Label(Selection.activeObject.name);
 
 			string path = AssetDatabase.GetAssetPath(Selection.activeObject);
-			//Èç¹ûÎÄ¼þ¸ñÊ½²»ÊÇcsv
+			//ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½csv
 			if (path.Length < 4)
 			{
-				GUILayout.Label("Ñ¡ÔñµÄÎÄ¼þ²»ÊÇcsv");
+				GUILayout.Label("Ñ¡ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½csv");
 				canCreate = false;
 			}
 			else if (path.ToLower().Substring(path.Length - 4, 4) != ".csv")
 			{
-				GUILayout.Label("Ñ¡ÔñµÄÎÄ¼þ²»ÊÇcsv");
+				GUILayout.Label("Ñ¡ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½csv");
 				canCreate = false;
 			}
 			else
@@ -48,7 +48,7 @@ public class CreateConfigDataFile : EditorWindow
 				canCreate = true;
 			}
 		}
-		if (GUILayout.Button("Éú³ÉÀàÐÍ½Å±¾"))
+		if (GUILayout.Button("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í½Å±ï¿½"))
         {
 			if(canCreate)
 			{
@@ -58,8 +58,8 @@ public class CreateConfigDataFile : EditorWindow
 				canCreateObjects = true;
 			}
 		}
-		GUILayout.Label("±ØÐëÏÈÉú³ÉÀàÐÍ½Å±¾²¢µÈ´ýÒýÇæÖØÐÂ¼ÓÔØ²ÅÄÜ½øÐÐ´Ë²Ù×÷");
-		if (GUILayout.Button("Éú³ÉÀàÐÍ¶ÔÏó"))
+		GUILayout.Label("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í½Å±ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ø²ï¿½ï¿½Ü½ï¿½ï¿½Ð´Ë²ï¿½ï¿½ï¿½");
+		if (GUILayout.Button("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¶ï¿½ï¿½ï¿½"))
 		{
 			if(canCreateObjects)
 			{

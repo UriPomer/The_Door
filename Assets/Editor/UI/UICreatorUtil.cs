@@ -24,7 +24,7 @@ public class UICreatorUtil
 			streamWriter.WriteLine("using UnityEngine;");
 			streamWriter.WriteLine("using UnityEngine.UI;");
 			streamWriter.WriteLine("");
-			streamWriter.WriteLine("public class " + className + " : UIController");
+			streamWriter.WriteLine("public class " + className + " : Controller");
 			streamWriter.WriteLine("{");
 			streamWriter.WriteLine("	public override void Awake()");
 			streamWriter.WriteLine("	{");

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3744452881596590885}
   - component: {fileID: 5855618095702729437}
-  - component: {fileID: 3604949589344802411}
   m_Layer: 0
   m_Name: SummonMgr
   m_TagString: Untagged
@@ -47,18 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfObjects: 0
   summonPrefab: {fileID: 0}
-  targetSpawner: {fileID: 3604949589344802411}
---- !u!114 &3604949589344802411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2783022325345740011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db140b7321f540d4cacc98d67e2c7a10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetPrefab: {fileID: 5080272045959396068, guid: 0c63f124c1905a74f9d0c8d92308ee07, type: 3}
-  dragTargets: []
+  targetSpawner: {fileID: 0}

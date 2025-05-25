@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 56768219849931835}
   - component: {fileID: 922936962264455670}
   - component: {fileID: 1212370600675313267}
+  - component: {fileID: 1977162114417354674}
   m_Layer: 0
   m_Name: ExpBall
   m_TagString: Untagged
@@ -51,10 +52,13 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 1030893335
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
+  m_Sprite: {fileID: 3136550281646277714, guid: a0d3fbbc155eb404a87f827b40a48dfe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,6 +112,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4079295349200295449}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -131,17 +136,37 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0.0012580156, y: 0.0050319433}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 0.8968452, y: 0.39936113}
   m_EdgeRadius: 0
+--- !u!114 &1977162114417354674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4079295349200295449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3270b1a9cd103e44b3efc168719b5e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ti: 40
+  T: 20
+  Td: 0.7
+  Kp: 0.03
+  TiR: 400
+  TR: 20
+  TdR: 0.7
+  KpR: 0.5

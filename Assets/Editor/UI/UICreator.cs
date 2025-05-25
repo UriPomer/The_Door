@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class UICreator : EditorWindow
 {
-	private static string filePath = "Assets/Scripts/Game/UIController";
+	private static string filePath = "Assets/Scripts/GamePlay/Controller";
 
     [MenuItem("Tools/UI Creator")]
     public static void CreateUI()
@@ -16,7 +16,7 @@ public class UICreator : EditorWindow
 
 	public void OnGUI()
 	{
-		GUILayout.Label("Ñ¡ÔñÒ»¸öUIÊÓÍ¼");
+		GUILayout.Label("Ñ¡ï¿½ï¿½Ò»ï¿½ï¿½UIï¿½ï¿½Í¼");
 		if(Selection.activeObject != null)
 		{
 			GUILayout.Label(Selection.activeObject.name);
@@ -24,10 +24,10 @@ public class UICreator : EditorWindow
 		}
 		else
 		{
-			GUILayout.Label("Ã»ÓÐÑ¡ÔñÈÎºÎUIÊÓÍ¼");
+			GUILayout.Label("Ã»ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Îºï¿½UIï¿½ï¿½Í¼");
 		}
 
-		if(GUILayout.Button("´´½¨UI¿ØÖÆÆ÷"))
+		if(GUILayout.Button("ï¿½ï¿½ï¿½ï¿½UIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"))
 		{
 			if(Selection.activeObject != null)
 			{
